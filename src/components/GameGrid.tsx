@@ -1,13 +1,12 @@
-import { useEffect, useState } from "react";
-import apiClient from "../services/api-client";
 import useFetchGames from "../hooks/UseFetchGames";
-import { SimpleGrid, Skeleton, Spinner, Text } from "@chakra-ui/react";
+import { SimpleGrid, Text } from "@chakra-ui/react";
 import GameCard from "./GameCard";
 import GameCardSkeletons from "./GameCardSkeletons";
+import GameCardContainer from "./GameCardContainer";
 
 const GameGrid = () => {
   const { games, isLoading, error } = useFetchGames();
-  const skeletons = [1, 2, 3, 4, 5, 6];
+  const skeletons = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
   return (
     <>
@@ -15,9 +14,15 @@ const GameGrid = () => {
 
       <SimpleGrid columns={{ sm: 1, md: 2, lg: 3 }} padding="10px" spacing={10}>
         {isLoading &&
-          skeletons.map((skeleton) => <GameCardSkeletons key={skeleton} />)}
+          skeletons.map((skeleton) => (
+            <GameCardContainer>
+              <GameCardSkeletons key={skeleton} />
+            </GameCardContainer>
+          ))}
         {games.map((game) => (
-          <GameCard key={game.id} game={game} />
+          <GameCardContainer>
+            <GameCard key={game.id} game={game} />{" "}
+          </GameCardContainer>
         ))}
       </SimpleGrid>
     </>
