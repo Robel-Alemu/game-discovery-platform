@@ -1,17 +1,16 @@
-import React from "react";
-import useFetchGenere from "../hooks/useGenres";
+import useGenre from "../hooks/useGenres";
 import { Text, VStack } from "@chakra-ui/react";
 
 const GenereList = () => {
-  const { genres, error } = useFetchGenere();
+  const { data, error } = useGenre();
 
   return (
     <>
-      {genres.map((genre) => (
+      {data.map((data) => (
         <VStack>
           {" "}
           {error && <Text> {error}</Text>}
-          <Text> {genre.name}</Text>
+          <Text> {data.name}</Text>
         </VStack>
       ))}
     </>
