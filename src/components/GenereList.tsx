@@ -11,8 +11,9 @@ import {
 import getCroppedImageUrl from "../services/image-url";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
+  selectedGenre: Genre | null;
 }
-const GenereList = ({ onSelectGenre }: Props) => {
+const GenereList = ({ onSelectGenre, selectedGenre }: Props) => {
   const { data, error, isLoading } = useGenre();
   if (error) return null;
   return (
@@ -30,6 +31,7 @@ const GenereList = ({ onSelectGenre }: Props) => {
               />
 
               <Button
+                fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 fontSize="lg"
                 key={genre.name}
                 variant="link"
