@@ -9,6 +9,7 @@ import {
   Text,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
+import { wrap } from "framer-motion";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
@@ -34,7 +35,8 @@ const GenereList = ({ onSelectGenre, selectedGenre }: Props) => {
                 fontWeight={genre.id === selectedGenre?.id ? "bold" : "normal"}
                 fontSize="lg"
                 key={genre.name}
-                variant="link"
+                variant="unstyled"
+                textDecoration="none"
                 onClick={() => onSelectGenre(genre)}
               >
                 {" "}
