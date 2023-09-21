@@ -7,11 +7,8 @@ import {
   List,
   ListItem,
   Spinner,
-  Text,
-  color,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
-import { wrap } from "framer-motion";
 interface Props {
   onSelectGenre: (genre: Genre) => void;
   selectedGenre: Genre | null;
