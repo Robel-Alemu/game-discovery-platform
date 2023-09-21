@@ -7,6 +7,7 @@ export interface Platform {
 }
 
 export interface Game {
+  count: number;
   id: number;
   name: string;
   background_image: string;

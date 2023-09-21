@@ -8,6 +8,7 @@ import {
   ListItem,
   Spinner,
   Text,
+  color,
 } from "@chakra-ui/react";
 import getCroppedImageUrl from "../services/image-url";
 import { wrap } from "framer-motion";
